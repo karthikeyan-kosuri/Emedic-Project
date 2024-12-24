@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emedic Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="./picture/logo.png" alt="Emedic">
+            </div>
+            <nav class="nav-menu">
+                <a href="#"><img src="./picture/home.png" alt="Home Icon"> Home</a>
+                <a href="#"><img src="./picture/Prescription.png" alt="Prescription Icon"> Prescription</a>
+                <a href="#"><img src="./picture/profile.png" alt="Profile Icon"> My Profile</a>
+                <a href="#"><img src="./picture/Book.png" alt="Lab Reports Icon"> Lab Reports</a>
+                <a href="#"><img src="./picture/Stethoscope.png" alt="Appointments Icon"> Appointments</a>
+                <a href="#"><img src="./picture/settings.png" alt="Settings Icon"> Settings</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header Section -->
+            <header class="top-header">
+                <h2>Overview</h2>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search for something">
+                    <img src="./picture/search.png" alt="Search Icon" class="search-icon">
+                </div>
+                <div class="header-icons">
+                    <img src="./picture/notification.png" alt="Notification Icon" class="icon">
+                    <img src="./picture/profile3.png" alt="Profile Icon" class="icon">
+                </div>
+            </header>
+
+            <!-- Content Container -->
+            <div class="content-container">
+                <!-- Appointments Section -->
+                <section class="appointments">
+                    <div class="appointments-header">
+                        <h3>Appointments</h3>
+                        <a href="#" class="see-all">See All</a>
+                    </div>
+                    <div class="appointment-cards">
+                        <!-- Appointment Card 1 -->
+                        <div class="appointment-card">
+                            <div class="card-left">
+                                <img src="./picture/profile3.png" alt="Patient Icon" class="patient-icon">
+                            </div>
+                            <div class="card-details">
+                                <h4>John Doe</h4>
+                                <p>Date: Jan 25, 2024</p>
+                                <p>Time: 10:00 AM</p>
+                                <p>Status: Confirmed</p>
+                            </div>
+                            <div class="card-actions">
+                                <button class="action-button">View</button>
+                                <button class="action-button">Reschedule</button>
+                            </div>
+                        </div>
+                
+                        <!-- Appointment Card 2 -->
+                        <div class="appointment-card">
+                            <div class="card-left">
+                                <img src="./picture/profile3.png" alt="Patient Icon" class="patient-icon">
+                            </div>
+                            <div class="card-details">
+                                <h4>Jane Smith</h4>
+                                <p>Date: Jan 25, 2024</p>
+                                <p>Time: 11:30 AM</p>
+                                <p>Status: Pending</p>
+                            </div>
+                            <div class="card-actions">
+                                <button class="action-button">View</button>
+                                <button class="action-button">Reschedule</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Lab Reports Section -->
+                <section class="lab-reports">
+                    <div class="section-header">
+                        <h3>Lab Reports</h3>
+                        <a href="#" class="see-all">See All</a>
+                    </div>
+                    <div class="report-cards">
+                        <!-- Report Card 1 -->
+                        <div class="report-card">
+                            <div class="card-left">
+                                <img src="./picture/labreport.png" alt="Lab Report Icon" class="report-icon">
+                            </div>
+                            <div class="card-details">
+                                <h4>Blood Test</h4>
+                                <p>Date: Jan 25, 2024</p>
+                                <p>Status: Pending</p>
+                            </div>
+                            <div class="card-actions">
+                                <button class="action-button">View</button>
+                            </div>
+                        </div>
+
+                        <!-- Report Card 2 -->
+                        <div class="report-card">
+                            <div class="card-left">
+                                <img src="./picture/labreport.png" alt="Lab Report Icon" class="report-icon">
+                            </div>
+                            <div class="card-details">
+                                <h4>Urine Test</h4>
+                                <p>Date: Jan 22, 2024</p>
+                                <p>Status: Completed</p>
+                            </div>
+                            <div class="card-actions">
+                                <button class="action-button">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Prescriptions Section -->
+                <section class="prescriptions">
+                    <div class="section-header">
+                        <h3>Prescriptions</h3>
+                        <a href="#" class="see-all">See All</a>
+                    </div>
+                    <div class="prescription-cards">
+                        <!-- Prescription Card 1 -->
+                        <div class="prescription-card">
+                            <div class="card-left">
+                                <img src="./picture/prescription2.png" alt="Prescription Icon" class="prescription-icon">
+                            </div>
+                            <div class="card-details">
+                                <h4>John Doe</h4>
+                                <p>Medication: Paracetamol</p>
+                                <p>Dosage: 500mg</p>
+                                <p>Date: Jan 20, 2024</p>
+                            </div>
+                            <div class="card-actions">
+                                <button class="action-button">View</button>
+                            </div>
+                        </div>
+
+                        <!-- Prescription Card 2 -->
+                        <div class="prescription-card">
+                            <div class="card-left">
+                                <img src="./picture/prescription2.png" alt="Prescription Icon" class="prescription-icon">
+                            </div>
+                            <div class="card-details">
+                                <h4>Jane Smith</h4>
+                                <p>Medication: Amoxicillin</p>
+                                <p>Dosage: 250mg</p>
+                                <p>Date: Jan 18, 2024</p>
+                            </div>
+                            <div class="card-actions">
+                                <button class="action-button">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Profile Section -->
+        <aside class="profile">
+            <img src="./picture/profile2.png" alt="Profile Picture" class="profile-picture">
+            <h4>AKHIL</h4>
+            <p>Gender: Male</p>
+            <p>Age: 18 years</p>
+            <p>Height: 178 cm</p>
+            <p>Weight: 62 kg</p>
+            <button>Show all information</button>
+        </aside>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

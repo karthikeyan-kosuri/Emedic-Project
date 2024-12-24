@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emedic Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <img src="logo.png" alt="Emedic Logo" class="logo">
+        </div>
+        <div class="right-panel">
+            <h2>Login Here</h2>
+            <form id="loginForm">
+                <input type="text" placeholder="Enter your Aadhaar" id="uid" required>
+                <input type="password" placeholder="Your password" id="password" required>
+                <div class="captcha-container">
+                    <label for="captchaAnswer" id="captchaQuestion"></label>
+                    <input type="text" id="captchaAnswer" placeholder="Enter answer" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
