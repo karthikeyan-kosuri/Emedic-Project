@@ -1,0 +1,38 @@
+[
+    {
+        "age": 45,
+        "gender": "male",
+        "glucose": 120,
+        "cholesterol": 200,
+        "bp_systolic": 140,
+        "creatinine": 1.2,
+        "disease": 1
+    },
+    {
+        "age": 50,
+        "gender": "female",
+        "glucose": 130,
+        "cholesterol": 220,
+        "bp_systolic": 145,
+        "creatinine": 1.5,
+        "disease": 1
+    },
+    {
+        "age": 60,
+        "gender": "male",
+        "glucose": 110,
+        "cholesterol": 180,
+        "bp_systolic": 130,
+        "creatinine": 1.0,
+        "disease": 0
+    },
+    {
+        "age": 55,
+        "gender": "female",
+        "glucose": 140,
+        "cholesterol": 240,
+        "bp_systolic": 150,
+        "creatinine": 1.8,
+        "disease": 2
+    }
+]
