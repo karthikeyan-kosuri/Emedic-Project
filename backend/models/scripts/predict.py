@@ -10,9 +10,8 @@ def predict_fracture(image_path, model_path="./pretrained_models/bone_fracture_m
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     checkpoint = torch.load(model_path, map_location=device)
     
-    # If you saved the whole model
+    # If you saved the model state_dict within a dict
     if isinstance(checkpoint, dict) and 'model_state_dict' in checkpoint:
-        # You need to create the same model architecture
         from torchvision import models
         import torch.nn as nn
         
@@ -21,7 +20,7 @@ def predict_fracture(image_path, model_path="./pretrained_models/bone_fracture_m
         model.fc = nn.Linear(num_ftrs, 2)
         model.load_state_dict(checkpoint['model_state_dict'])
     else:
-        # If you saved the entire model object
+        # If the entire model object was saved
         model = checkpoint
     
     model = model.to(device)
@@ -44,13 +43,11 @@ def predict_fracture(image_path, model_path="./pretrained_models/bone_fracture_m
         probabilities = F.softmax(outputs, dim=1).cpu().numpy()[0]
         predicted_class = torch.argmax(outputs, dim=1).item()
     
-    class_names = ['fractured', 'not fractured']  # Make sure this matches your dataset order
+    class_names = ['fractured', 'not fractured']  # Ensure this order matches your training dataset
     result = {
         'prediction': class_names[predicted_class],
         'confidence': float(probabilities[predicted_class] * 100),
-        'probabilities': {
-            class_names[i]: float(probabilities[i] * 100) for i in range(len(class_names))
-        }
+        'probabilities': {class_names[i]: float(probabilities[i] * 100) for i in range(len(class_names))}
     }
     
     # Visualize the results
@@ -71,10 +68,7 @@ def predict_fracture(image_path, model_path="./pretrained_models/bone_fracture_m
     
     # Color the bars based on prediction
     for i, bar in enumerate(bars):
-        if i == predicted_class:
-            bar.set_color('green')
-        else:
-            bar.set_color('red')
+        bar.set_color('green' if i == predicted_class else 'red')
     
     for i, v in enumerate([result['probabilities'][c] for c in class_names]):
         plt.text(i, v + 2, f"{v:.1f}%", ha='center')
@@ -84,8 +78,6 @@ def predict_fracture(image_path, model_path="./pretrained_models/bone_fracture_m
     # Save the visualization
     output_dir = "./predictions"
     os.makedirs(output_dir, exist_ok=True)
-    
-    # Get the image name without extension
     image_name = os.path.splitext(os.path.basename(image_path))[0]
     plot_path = os.path.join(output_dir, f"{image_name}_prediction.png")
     plt.savefig(plot_path)
@@ -104,5 +96,4 @@ if __name__ == "__main__":
                         help='Path to the trained model')
     
     args = parser.parse_args()
-    
     predict_fracture(args.image_path, args.model)
