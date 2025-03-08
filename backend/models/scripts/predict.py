@@ -1,31 +1,30 @@
 import torch
-from torchvision import transforms
+from torchvision import transforms, models
 from PIL import Image
 import os
+import torch.nn as nn
 import torch.nn.functional as F
 import matplotlib.pyplot as plt
 
 def predict_fracture(image_path, model_path="./pretrained_models/bone_fracture_model.pth"):
     # Load the trained model
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    checkpoint = torch.load(model_path, map_location=device)
     
-    # If you saved the model state_dict within a dict
+    # Define the model architecture
+    model = models.resnet50(pretrained=False)
+    num_ftrs = model.fc.in_features
+    model.fc = nn.Linear(num_ftrs, 2)  # Ensure this matches your training setup
+
+    # Load model weights
+    checkpoint = torch.load(model_path, map_location=device)
     if isinstance(checkpoint, dict) and 'model_state_dict' in checkpoint:
-        from torchvision import models
-        import torch.nn as nn
-        
-        model = models.resnet50(pretrained=False)
-        num_ftrs = model.fc.in_features
-        model.fc = nn.Linear(num_ftrs, 2)
         model.load_state_dict(checkpoint['model_state_dict'])
     else:
-        # If the entire model object was saved
-        model = checkpoint
-    
+        model.load_state_dict(checkpoint)  # If you saved only state_dict
+
     model = model.to(device)
     model.eval()
-    
+
     # Image preprocessing
     transform = transforms.Compose([
         transforms.Resize((224, 224)),

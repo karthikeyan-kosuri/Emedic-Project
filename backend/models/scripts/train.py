@@ -3,7 +3,7 @@ import kaggle
 from external_trainer import train_model
 
 # Set your Kaggle credentials directory
-os.environ['KAGGLE_CONFIG_DIR'] = r"E:\Workspace\.kaggle"
+os.environ['KAGGLE_CONFIG_DIR'] = r"C:\Users\karth\.kaggle"
 
 def download_dataset_if_needed(data_path, kaggle_dataset):
     # Check if a 'train' folder exists; if not, assume dataset is unsplit
@@ -28,7 +28,7 @@ if __name__ == "__main__":
     print("✅ Starting bone fracture classification training...")
 
     # Path to your dataset folder after unzipping
-    data_path = "E:/Data/dataset/Bone_Fracture_Binary/Bone_Fracture_Binary_Classification"
+    data_path = "C:\Data\dataset\Bone_Fracture_Binary\Bone_Fracture_Binary_Classification\Bone_Fracture_Binary_Classification\Bone_Fracture_Binary_Classification"
     
     # Kaggle dataset slug
     kaggle_dataset = "bmadushanirodrigo/fracture-multi-region-x-ray-data"
@@ -46,7 +46,7 @@ if __name__ == "__main__":
         model_save_path=model_save_path,
         epochs=5,
         batch_size=32,
-        simulate=True  # Enable simulation mode for faster testing
+        simulate=False  # Enable simulation mode for faster testing
     )
     
     print(f"✅ Training complete! Final test accuracy: {test_accuracy:.2f}%")
